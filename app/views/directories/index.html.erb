@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Directories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Category</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Direccion</th>
+      <th>Comuna</th>
+      <th>Ciudad</th>
+      <th>Region</th>
+      <th>Telefono</th>
+      <th>Codigo area</th>
+      <th>Celular</th>
+      <th>Email</th>
+      <th>Foto perfil</th>
+      <th>Foto portada</th>
+      <th>Estado</th>
+      <th>Layout</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @directories.each do |directory| %>
+      <tr>
+        <td><%= directory.user %></td>
+        <td><%= directory.category %></td>
+        <td><%= directory.nombre %></td>
+        <td><%= directory.descripcion %></td>
+        <td><%= directory.direccion %></td>
+        <td><%= directory.comuna %></td>
+        <td><%= directory.ciudad %></td>
+        <td><%= directory.region %></td>
+        <td><%= directory.telefono %></td>
+        <td><%= directory.codigo_area %></td>
+        <td><%= directory.celular %></td>
+        <td><%= directory.email %></td>
+        <td><%= directory.foto_perfil %></td>
+        <td><%= directory.foto_portada %></td>
+        <td><%= directory.estado %></td>
+        <td><%= directory.layout %></td>
+        <td><%= link_to 'Show', directory %></td>
+        <td><%= link_to 'Edit', edit_directory_path(directory) %></td>
+        <td><%= link_to 'Destroy', directory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Directory', new_directory_path %>

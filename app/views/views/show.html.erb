@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Directory:</strong>
+  <%= @view.directory %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @view.fecha %>
+</p>
+
+<p>
+  <strong>Hora:</strong>
+  <%= @view.hora %>
+</p>
+
+<%= link_to 'Edit', edit_view_path(@view) %> |
+<%= link_to 'Back', views_path %>

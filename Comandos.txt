@@ -1,0 +1,49 @@
+1. rails new BaseProyecto -d mysql
+2. Añadir la siguiente línea al final del archivo Gemfile: gem 'devise'
+3. bundle install
+4. rails generate devise:install
+5. rails generate devise User
+
+#En la carpeta migrate, buscar el archivo perteneciente a User. Su nombre es algo así, número alteatorio_devise_create_users.rb y agregar los campos que contenga la tabla User ya que por defecto viene Email y password.
+
+6. rake db:migrate
+7. rails generate devise:views
+
+#Con esto se tiene la tabla y las vistas de User. Pero para que registre y edite hay que agregar lo siguiente al application_controller.rb...
+before_filter :configure_permitted_parameters, if: :devise_controller?
+  protected
+        def configure_permitted_parameters
+            devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:nombre, :apellidos, :email, :password, :rol) }
+            devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:nombre, :apellidos, :email, :password, :current_password, :rol) }
+        end
+Ya que si no se agrega solo agrega y edita los campos por defectos que son Email y Password.
+
+7. rails g controller welcome index
+
+#Solo para crear una vista de bienvenida...
+En routes.rb hay que cambiar la linea
+#get 'welcome/index' por esta
+get 'welcome/index'
+
+8. rails g scaffold Category nombre:string
+9.rake db:migrate
+10. rails g scaffold Subcategory category:references nombre:string
+11:rake db:migrate
+12.rails g scaffold Directory user:references category:references nombre:string descripcion:text direccion:string comuna:string ciudad:string region:string telefono:integer codigo_area:integer celular:integer email:string foto_perfil:string foto_portada:string estado:string layout:string
+13.rake db:migrate
+14. rails g scaffold Link directory:references tipo:string url:string 
+15. rake db:migrate
+16.rails g scaffold View directory:references fecha:date hora:time
+17:rake db:migrate
+18.rails g scaffold Like user:references directory:references
+
+#En directories_controller.rb cambiar la linea
+ def directory_params
+params.require(:directory).permit(:user_id, :category_id, :nombre, :descripcion, :direccion, :comuna, :ciudad, :region, :telefono, :codigo_area, :celular, :email, :foto_perfil, :foto_portada, :estado, :layout)
+end
+
+por esta:
+      params.require(:directory).permit(:category_id, :nombre, :descripcion, :direccion, :comuna, :ciudad, :region, :telefono, :codigo_area, :celular, :email, :foto_perfil, :foto_portada, :estado, :layout).merge(user_id: current_user.id) 
+
+Para que de esta manera registre el user_id sin la nesecidad de agregarlo en el formulario.
+  

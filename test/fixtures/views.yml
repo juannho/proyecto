@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  directory_id: 
+  fecha: 2015-05-07
+  hora: 2015-05-07 16:09:46
+
+two:
+  directory_id: 
+  fecha: 2015-05-07
+  hora: 2015-05-07 16:09:46
