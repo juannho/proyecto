@@ -1,8 +1,9 @@
 class DirectoriesController < ApplicationController
-  before_action :set_directory, only: [:show, :edit, :update, :destroy]
-
+   before_action :set_directory, only: [:show, :edit, :update, :destroy]
+   
   # GET /directories
   # GET /directories.json
+
   def index
     @directories = Directory.all
   end
@@ -72,4 +73,5 @@ class DirectoriesController < ApplicationController
       #params.require(:directory).permit(:user_id, :category_id, :nombre, :descripcion, :direccion, :comuna, :ciudad, :region, :telefono, :codigo_area, :celular, :email, :foto_perfil, :foto_portada, :estado, :layout)
       params.require(:directory).permit(:category_id, :nombre, :descripcion, :direccion, :comuna, :ciudad, :region, :telefono, :codigo_area, :celular, :email, :foto_perfil, :foto_portada, :estado, :layout).merge(user_id: current_user.id) 
     end
+    before_filter :authenticate_user!
 end

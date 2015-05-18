@@ -71,4 +71,5 @@ class SubcategoriesController < ApplicationController
     def subcategory_params
       params.require(:subcategory).permit(:category_id, :nombre)
     end
+    before_filter :authenticate_user!
 end

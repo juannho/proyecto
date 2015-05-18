@@ -71,4 +71,5 @@ class LikesController < ApplicationController
     def like_params
       params.require(:like).permit(:user_id, :directory_id)
     end
+    before_filter :authenticate_user!
 end

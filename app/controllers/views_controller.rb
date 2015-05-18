@@ -71,4 +71,5 @@ class ViewsController < ApplicationController
     def view_params
       params.require(:view).permit(:directory_id, :fecha, :hora)
     end
+    before_filter :authenticate_user!
 end

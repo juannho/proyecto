@@ -5,6 +5,7 @@ class Directory < ActiveRecord::Base
   	has_many:views, dependent: :destroy
   	has_many:likes, dependent: :destroy
 
+
   	#validaciones de campos.
 	validates :nombre, :presence => {:message => "can't be blank"}
  	validates :descripcion, :presence => {:message => "can't be blank"}

@@ -71,4 +71,5 @@ class LinksController < ApplicationController
     def link_params
       params.require(:link).permit(:directory_id, :tipo, :url)
     end
+    before_filter :authenticate_user!
 end

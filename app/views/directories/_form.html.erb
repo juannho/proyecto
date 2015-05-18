@@ -1,4 +1,4 @@
-<%= form_for(@directory) do |f| %>
+<%= simple_form_for(@directory, html: {class: "form-horizontal", multipart: true}) do |f| %>
   <% if @directory.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@directory.errors.count, "error") %> prohibited this directory from being saved:</h2>
@@ -11,67 +11,26 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
-  </div>
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :descripcion %><br>
-    <%= f.text_area :descripcion %>
-  </div>
-  <div class="field">
-    <%= f.label :direccion %><br>
-    <%= f.text_field :direccion %>
-  </div>
-  <div class="field">
-    <%= f.label :comuna %><br>
-    <%= f.text_field :comuna %>
-  </div>
-  <div class="field">
-    <%= f.label :ciudad %><br>
-    <%= f.text_field :ciudad %>
-  </div>
-  <div class="field">
-    <%= f.label :region %><br>
-    <%= f.text_field :region %>
-  </div>
-  <div class="field">
-    <%= f.label :telefono %><br>
-    <%= f.number_field :telefono %>
-  </div>
-  <div class="field">
-    <%= f.label :codigo_area %><br>
-    <%= f.number_field :codigo_area %>
-  </div>
-  <div class="field">
-    <%= f.label :celular %><br>
-    <%= f.number_field :celular %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :foto_perfil %><br>
-    <%= f.text_field :foto_perfil %>
-  </div>
-  <div class="field">
-    <%= f.label :foto_portada %><br>
-    <%= f.text_field :foto_portada %>
-  </div>
-  <div class="field">
-    <%= f.label :estado %><br>
-    <%= f.text_field :estado %>
-  </div>
-  <div class="field">
-    <%= f.label :layout %><br>
-    <%= f.text_field :layout %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <%= f.input :category_id%><br>
+    <%= f.input :nombre %><br>
+    <%= f.input :descripcion %><br>
+    <%= f.input :direccion %><br>
+    <%= f.input :comuna %><br>
+    <%= f.input :ciudad %><br>
+    <%= f.input :region %><br>
+    <%= f.input :telefono %><br>
+    <%= f.input :codigo_area %><br>
+    <%= f.input :celular %><br>
+    <%= f.input :email %><br>
+    <div class="actions">
+    <%= f.label :foto_perfil %>
+    <%= f.file_field :foto_perfil%>
+    </div>
+    <%= f.input :foto_portada %><br>
+    <%= f.input :estado %><br>
+    <%= f.input :layout %><br>
+
+  <div class="form-action">
+    <%= f.button :submit %>
   </div>
 <% end %>

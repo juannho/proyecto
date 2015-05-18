@@ -71,4 +71,5 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:nombre)
     end
+    before_filter :authenticate_user!
 end

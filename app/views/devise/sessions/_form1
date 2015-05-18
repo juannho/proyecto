@@ -1,0 +1,29 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="text-center ingreso col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon" id="sizing-addon1">@</span>
+              <%= f.email_field :email, autofocus: true, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon" id="sizing-addon1">#</span>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control" %>  
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+             <%= f.submit "Log in" %>
+          </div>
+           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <span class="registrar-link">
+              <strong>
+                <%=link_to "Registrar", new_user_registration_path %>
+              </strong>
+            </span>
+          </div>
+        </div>
+<% end %>
+</div>
+       
+<%= render "devise/shared/links" %>

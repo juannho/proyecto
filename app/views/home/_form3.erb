@@ -1,0 +1,29 @@
+<div class="row">
+        <% @directories.each do |directories| %>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <%= image_tag "control.png", :class => "media-object img-responsive", :alt => directories.nombre, :title => directories.nombre%>
+                </a>
+              </div>
+               <div class="thumb media-body">
+                <h4 class="media-heading"><%= directories.nombre %></h4>
+                <p class="text-justify"><%= directories.descripcion %></p>
+              <ul>
+                <li>Dirección: <%= directories.direccion %></li>
+                <li>Teléfono:(0<%= directories.codigo_area %>) <%= directories.telefono %></li>
+                <li>Correo: <%= directories.email %></li>
+                <li>Celular:<%= directories.celular %></li>
+              </ul>
+              <div class="social">
+                <span class="social-icon fa fa-facebook fa-2x"></span>
+                <span class="social-icon fa fa-twitter fa-2x"></span>
+                <span class="social-icon fa fa-pinterest fa-2x"></span>
+                <span class="social-icon fa fa-envelope-o fa-2x"></span>
+              </div>
+              </div>
+          </div>
+        </div>
+        <% end %>
+  </div>

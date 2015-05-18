@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
  	validates :apellidos, :presence => {:message => "can't be blank"}
  	validates :email, :presence => {:message => "can't be blank"}
  	validates :email, uniqueness: {case_sensitive: false}
+
+ 	def nombre_completo
+ 		nombre + " " + apellidos 		
+ 	end
 end

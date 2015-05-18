@@ -20,7 +20,7 @@
         <td><%= view.hora %></td>
         <td><%= link_to 'Show', view %></td>
         <td><%= link_to 'Edit', edit_view_path(view) %></td>
-        <td><%= link_to 'Destroy', view, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Destroy', view, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

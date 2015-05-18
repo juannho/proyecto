@@ -1,0 +1,65 @@
+  <body>
+    <div class="container">
+      <h4 class="text-right"><%= link_to "Editar perfil", edit_user_registration_path %><span class="fa fa-gear"></span></h4>
+    
+      <div class="row">
+        <div class="col-lg-12 col-lg-offset-2 col-md-12 col-sm-12 col-xs-12">
+          <div class="media">
+              <div class="media-left">
+                <a href="#">
+                    <a href="#">
+                      <i class="fa fa-plus fa-3x"></i>
+                  </a>
+                </a>
+              </div>
+              <div class="media-body">
+                <h2 class="media-heading"><%= link_to 'Crear Nuevos Directorios', new_directory_path %></h2>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="row">
+         <% @directories.each do |directories| %>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs 12">
+          <div class="media">
+            <div class="media-left">
+                <a href="#">
+                     <%= image_tag "control.png", :class => "media-object img-responsive", :alt => directories.nombre, :title => directories.nombre%>
+                </a>
+              </div>
+              <div class="thumb media-body">
+                <h4 class="media-heading"><%= directories.nombre %></h4>
+                <p class="text-justify"><%= directories.descripcion %></p>
+              <ul>
+                <li>Dirección: <%= directories.direccion %></li>
+                <li>Teléfono:(0<%= directories.codigo_area %>) <%= directories.telefono %></li>
+                <li>Correo:<%= directories.email %></li>
+                <li>Celular:<%= directories.celular %></li>
+              </ul>
+              <div class="social">
+                <span class="social-icon fa fa-facebook fa-2x"></span>
+                <span class="social-icon fa fa-twitter fa-2x"></span>
+                <span class="social-icon fa fa-pinterest fa-2x"></span>
+                <span class="social-icon fa fa-envelope-o fa-2x"></span>
+              </div>
+
+                <div class="control text-center">
+                  <tr>
+                    <td>
+                        <%= link_to 'Editar', edit_directory_path(directories) %>
+                    </td>
+                    <td>
+                        <%= button_to 'Eliminar', directories, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </td>
+                  </tr>
+                  </div>
+              </div>
+
+          </div>
+        </div>
+        <% end %>
+      </div>      
+    </div>
+  </body>
